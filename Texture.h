@@ -1,8 +1,8 @@
 #pragma once
 
-#include "glut.h"
 #include <string>
 #include "stb_image.h"
+#include "glut.h"
 
 class Texture {
 
@@ -13,8 +13,11 @@ private:
 
 public:
 
+	Texture();
 	Texture(GLuint textureId);
 	static Texture loadTexture(std::string path);
+
+	GLuint getTextureId();
 
 	void activate();
 
