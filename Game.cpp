@@ -4,7 +4,8 @@
 
 Game::Game(): 
 	carTexture(Texture::loadTexture("res/RCCar/10600_RC_Car_SG_v1_diffuse.jpg")),
-	groundTexture(Texture::loadTexture("res/textures/field3.jpg"))
+	groundTexture(Texture::loadTexture("res/textures/field3.jpg")),
+	ballTexture(Texture::loadTexture("res/textures/soccer.jpg"))
 {
 	camera.activateCamera();
 
@@ -15,6 +16,7 @@ Game::Game():
 void Game::processFrame(float ds) {
 	
 	moveCamera(ds);
+	movePlayer(ds);
 	glutPostRedisplay();
 }
 
@@ -41,6 +43,12 @@ void Game::moveCamera(float ds) {
 		camera.ProcessKeyboard(Camera_Movement::BACKWARD, ds);
 
 	camera.activateCamera();
+}
+
+
+void Game::movePlayer(float ds) {
+	if (isKeyPressed('i'))
+		player->move(ds);
 }
 
 

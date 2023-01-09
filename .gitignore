@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/res/textures/field2.jpg
+/res/textures/football_field.jpg

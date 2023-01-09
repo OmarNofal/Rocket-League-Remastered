@@ -3,14 +3,11 @@
 
 
 
-Ball::Ball() : WorldObject(
+Ball::Ball(Texture* tex) : WorldObject(
     { 0.0f, 0.0f, 0.0f },
     { 0.0f, 0.0f, 0.0f },
     { 1.0f, 1.0f, 1.0f }
-) {
-
-    ballTexture = Texture::loadTexture("res/textures/soccer.jpg");
-
+), ballTexture{ tex }  {
 
 
 }
@@ -18,7 +15,7 @@ Ball::Ball() : WorldObject(
 
 void Ball::draw() {
 
-    ballTexture.activate();
+    ballTexture->activate();
     GLUquadric* quad = gluNewQuadric();
     gluQuadricTexture(quad, GL_TRUE);
     gluQuadricOrientation(quad, GLU_OUTSIDE);
@@ -26,5 +23,4 @@ void Ball::draw() {
     gluSphere(quad, 10.0f, 32, 32);
 
 }
-
 

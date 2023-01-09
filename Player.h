@@ -26,4 +26,10 @@ public:
 
 	Player(Texture* carTexture);
 	void draw();
+
+
+	glm::vec3 getForwardVector();
+	glm::vec3 getUpVector();
+
+	void move(float ds);
 };

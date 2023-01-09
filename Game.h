@@ -17,9 +17,11 @@ private:
 	bool isKeyPressed(unsigned char);
 	
 	void moveCamera(float);
+	void movePlayer(float);
 
 	Texture carTexture;
 	Texture groundTexture;
+	Texture ballTexture;
 	
 public:
 	

@@ -9,11 +9,11 @@ class Ball : public WorldObject {
 	
 
 private:
-	Texture ballTexture;
+	Texture* ballTexture;
 
 public:
 
-	Ball();
+	Ball(Texture* texture);
 
 	void draw();
 

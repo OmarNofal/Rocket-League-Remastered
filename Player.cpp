@@ -5,7 +5,7 @@
 #include "Player.h"
 #include <iostream>
 #include "stb_image.h"
-
+#include "glm/gtc/matrix_transform.hpp"
 
 
 Player::Player(Texture* carTexture) : WorldObject(
@@ -86,3 +86,32 @@ void Player::draw() {
     glPopMatrix();
     glEnd();
 };
+
+
+void Player::move(float ds) {
+
+    const float velocity = 60.0f;
+
+    const auto forwardVector = getForwardVector();
+
+    setTranslation(getTranslation() + forwardVector * velocity * ds);
+
+};
+
+
+glm::vec3 Player::getForwardVector() {
+
+    
+    const auto rotationMatrix = getRotationMatrix();
+
+    // multiply by the original forward vector and cast it to vec3
+    return glm::vec3((rotationMatrix * glm::vec4{0.0f, -1.0f, 0.0f, 1.0f}));
+
+}
+
+
+glm::vec3 Player::getUpVector() {
+    const auto rotationMatrix = getRotationMatrix();
+
+    return glm::vec3((rotationMatrix * glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f }));
+}

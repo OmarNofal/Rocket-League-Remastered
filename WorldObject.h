@@ -2,6 +2,7 @@
 
 #include "glm/glm.hpp"
 #include "glut.h"
+#include "glm/gtc/matrix_transform.hpp"
   
 // abstract class.
 // each entity to be placed in the world must inherit from this class
@@ -62,6 +63,24 @@ public:
 		glScalef(scale.x, scale.y, scale.z);
 	}
 
+	glm::mat4x4 getRotationMatrix() {
+		const auto rotation = getRotation();
+		// rotate around the three axes.
+		return
+			glm::rotate(
+				glm::rotate(
+					glm::rotate(
+						glm::mat4(1),
+						glm::radians(rotation.z),
+						{ 0.0f, 0.0f, 1.0f }
+					),
+					glm::radians(rotation.y),
+					{ 0.0f, 1.0f, 0.0f }
+				),
+				glm::radians(rotation.x),
+				{ 1.0f, 0.0f, 0.0f }
+		);
+	}
 
 	virtual void draw() = 0;
 };
