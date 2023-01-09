@@ -2,10 +2,14 @@
 
 
 
-Game::Game(): carTexture(Texture::loadTexture("res/RCCar/10600_RC_Car_SG_v1_diffuse.jpg")) {
+Game::Game(): 
+	carTexture(Texture::loadTexture("res/RCCar/10600_RC_Car_SG_v1_diffuse.jpg")),
+	groundTexture(Texture::loadTexture("res/textures/field3.jpg"))
+{
 	camera.activateCamera();
 
 	player = new Player(&carTexture);
+	ground = new Ground(&groundTexture);
 }
 
 void Game::processFrame(float ds) {
@@ -17,6 +21,7 @@ void Game::processFrame(float ds) {
 
 void Game::draw() {
 	player->draw();
+	ground->draw();
 }
 
 

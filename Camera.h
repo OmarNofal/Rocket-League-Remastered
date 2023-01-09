@@ -70,7 +70,7 @@ public:
     void activateCamera() {
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        gluPerspective(45.0f, (float)1400 / 787, 0.1f, 600.0f);
+        gluPerspective(45.0f, (float)1400 / 787, 0.1f, 10000.0f);
         const auto atPoint = Position + Front;
         gluLookAt(Position.x , Position.y, Position.z, atPoint.x, atPoint.y, atPoint.z, Up.x, Up.y, Up.z);
         glMatrixMode(GL_MODELVIEW);

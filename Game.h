@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Player.h"
 #include "Texture.h"
+#include "Ground.h"
 
 #include <set>
 
@@ -18,6 +19,7 @@ private:
 	void moveCamera(float);
 
 	Texture carTexture;
+	Texture groundTexture;
 	
 public:
 	
@@ -25,6 +27,7 @@ public:
 
 	Camera camera;
 	Player* player;
+	Ground* ground;
 
 	/*Processes a new frame
 	ds is the time since last frame in seconds

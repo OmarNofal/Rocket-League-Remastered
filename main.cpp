@@ -98,15 +98,6 @@ int main(int argc, char** argv) {
 	glEnable(GL_DEPTH_TEST);
 	
 	game = new Game();
-
-	/*glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(45.0f, (float) WIDTH / HEIGHT, 0.1f, 600.0f);
-	gluLookAt(0.0f, 0.0, 100.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
-
-	glMatrixMode(GL_MODELVIEW);*/
-
-	
 	
 	glutMainLoop();
 }
